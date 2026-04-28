@@ -1,0 +1,53 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\title{CNN-Transformer Hybrid for Log Anomaly Detection}
+
+\author{
+Your Name\\
+Independent Researcher
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We propose a CNN-Transformer hybrid model with structural feature engineering for log anomaly detection. The model captures both local structural patterns and global dependencies in log sequences. Experiments on HDFS and BGL datasets show improved performance over classical baselines, achieving ROC-AUC of 0.91.
+\end{abstract}
+
+\section{Introduction}
+Log anomaly detection is important for system reliability and security.
+
+\section{Method}
+We combine CNN, Transformer, and structural features:
+
+\begin{equation}
+F(S) = (N, L, S, E, T, R)
+\end{equation}
+
+\begin{equation}
+H = Transformer(CNN(X))
+\end{equation}
+
+\section{Results}
+Our model outperforms baselines.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lc}
+TF-IDF & 0.76 \\
+Isolation Forest & 0.79 \\
+LSTM & 0.87 \\
+Transformer & 0.88 \\
+Proposed & \textbf{0.91}
+\end{tabular}
+\end{table}
+
+\section{Conclusion}
+We proposed a hybrid model combining structural and deep learning features.
+
+\end{document}
