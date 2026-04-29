@@ -1,3 +1,8 @@
+# 🧠 Log Anomaly Detection using CNN + Transformer
+
+<p align="center">
+  <img src="https://dummyimage.com/1200x300/0d1117/ffffff&text=Log+Anomaly+Detection+AI+Research" />
+</p>
 # Log Anomaly Detection using CNN + Transformer
 
 ![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.19876022-orange?style=for-the-badge)
@@ -36,3 +41,8 @@ It improves performance on benchmark datasets such as HDFS and BGL.
 ---
 
 ## 📁 Structure
+## 📄 Citation
+
+If you use this work, please cite:
+
+DOI: https://doi.org/10.5281/zenodo.19876022
