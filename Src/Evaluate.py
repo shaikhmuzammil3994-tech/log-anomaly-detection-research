@@ -1,12 +1,18 @@
+
 from sklearn.metrics import roc_auc_score
 
-def evaluate(y_true, y_pred):
+def evaluate(model, dataloader):
+    model.eval()
+
+    y_true = []
+    y_pred = []
+
+    with torch.no_grad():
+        for x, features, y in dataloader:
+            preds = model(x, features)
+
+            y_true.extend(y.tolist())
+            y_pred.extend(preds.squeeze().tolist())
+
     score = roc_auc_score(y_true, y_pred)
-    print("ROC-AUC Score:", score)
-
-if __name__ == "__main__":
-    # dummy example
-    y_true = [0, 1, 0, 1]
-    y_pred = [0.1, 0.9, 0.2, 0.8]
-
-    evaluate(y_true, y_pred)
+    print("ROC-AUC:", score)
