@@ -1,53 +1,82 @@
-\documentclass[conference]{IEEEtran}
+\documentclass[11pt]{article}
 
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{hyperref}
 
-\title{CNN-Transformer Hybrid for Log Anomaly Detection}
+\title{Log Anomaly Detection using CNN-Transformer Hybrid Architecture with Structural Feature Engineering}
 
 \author{
-Your Name\\
 Independent Researcher
 }
+
+\date{}
 
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-We propose a CNN-Transformer hybrid model with structural feature engineering for log anomaly detection. The model captures both local structural patterns and global dependencies in log sequences. Experiments on HDFS and BGL datasets show improved performance over classical baselines, achieving ROC-AUC of 0.91.
+Log anomaly detection is a critical task in system monitoring and cybersecurity. Traditional frequency-based methods such as TF-IDF often fail to capture structural irregularities in log data, while sequence-based deep learning models may overlook explicit structural patterns.
+
+This paper proposes a hybrid CNN-Transformer framework integrated with structural feature engineering for improved anomaly detection. The CNN component extracts local patterns from log sequences, while the Transformer captures long-range dependencies. Structural features are fused with learned representations to enhance detection capability.
+
+Experimental evaluation on benchmark datasets such as HDFS and BGL demonstrates that the proposed model achieves superior performance compared to classical and deep learning baselines, including TF-IDF, Isolation Forest, LSTM, and Transformer-only models, achieving an ROC-AUC of 0.91.
 \end{abstract}
 
 \section{Introduction}
-Log anomaly detection is important for system reliability and security.
 
-\section{Method}
-We combine CNN, Transformer, and structural features:
+System logs provide valuable insights into system behavior, failures, and security events. Detecting anomalies in logs is essential for maintaining reliability and identifying malicious activity.
 
-\begin{equation}
-F(S) = (N, L, S, E, T, R)
-\end{equation}
+Traditional methods rely on frequency-based representations, which are insufficient for capturing structural anomalies. Deep learning approaches improve performance but often ignore explicit structural information.
 
-\begin{equation}
-H = Transformer(CNN(X))
-\end{equation}
+\section{Proposed Method}
+
+We propose a hybrid architecture combining convolutional neural networks, transformer encoders, and structural feature engineering.
+
+\subsection{CNN Feature Extraction}
+
+The CNN module extracts local patterns from log sequences, capturing short-range dependencies.
+
+\subsection{Transformer Encoder}
+
+The transformer captures long-range dependencies and contextual relationships within log sequences.
+
+\subsection{Structural Features}
+
+We extract handcrafted structural features including character distribution, entropy, and repetition patterns, which are concatenated with learned representations.
+
+\section{Experimental Setup}
+
+\subsection{Datasets}
+
+We evaluate on:
+\begin{itemize}
+\item HDFS log dataset
+\item BGL log dataset
+\end{itemize}
+
+\subsection{Evaluation Metric}
+
+We use ROC-AUC as the primary evaluation metric due to class imbalance.
 
 \section{Results}
-Our model outperforms baselines.
 
-\begin{table}[h]
-\centering
-\begin{tabular}{lc}
-TF-IDF & 0.76 \\
-Isolation Forest & 0.79 \\
-LSTM & 0.87 \\
-Transformer & 0.88 \\
-Proposed & \textbf{0.91}
-\end{tabular}
-\end{table}
+The proposed method outperforms baseline models:
+
+\begin{itemize}
+\item TF-IDF + Logistic Regression
+\item Isolation Forest
+\item LSTM
+\item Transformer-only model
+\end{itemize}
+
+Achieving a ROC-AUC score of \textbf{0.91}.
 
 \section{Conclusion}
-We proposed a hybrid model combining structural and deep learning features.
+
+We presented a hybrid CNN-Transformer framework with structural feature engineering for log anomaly detection. Experimental results show significant improvement over existing methods.
+
+Future work includes scaling to larger datasets and exploring advanced transformer architectures.
 
 \end{document}
